@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        body{
+            background-color:#ddd;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+{% include "admin/layout/nav.html.twig" %}
+<div class="mt-4">
+  <h2>Users</h2>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td> {{ user.fullname }} </td>
+          <td> {{ user.email }} </td>
+          <td> <span class="badge badge-{{ user.roles == 'admin' ? 'success' : 'info'  }} "> {{ user.roles }}</span>  </td>
+          <td> {{ user.getCreatedAt|date('d/m/Y (d M D)') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

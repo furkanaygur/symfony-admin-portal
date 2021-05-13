@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href=" {{ asset('css/main.css') }} ">
+{% endblock %}
+{% block body %}
+
+<div class="sidenav">
+    <div class="login-main-text">
+        <h2>Application<br> Regiser Page</h2>
+        <p>Register from here to access.</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="register-form">
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_row(form.email ,{'attr': {'class': 'form-control'}}) }}
+                </div>
+                 <div class="form-group">
+                    {{ form_row(form.password ,{'attr': {'class': 'form-control'}}) }}
+                </div>
+                 <div class="form-group">
+                    {{ form_row(form.fullname ,{'attr': {'class': 'form-control'}}) }}
+                </div>
+                {{ form_row(form.roles) }}
+                 {{ form_row(form.register ,{'attr': {'class': 'btn btn-black'}}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

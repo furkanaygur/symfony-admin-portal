@@ -1,0 +1,11 @@
+index:
+  path: /
+  controller: App\Controller\IndexController::index
+ 
+index2:
+  path: /index
+  controller: App\Controller\IndexController::index
+
+admin:
+  path: /admin/index
+  controller: App\Controller\Admin\IndexController::index

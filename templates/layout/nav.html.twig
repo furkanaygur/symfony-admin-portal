@@ -11,7 +11,15 @@
       </li>
     </ul>
     <div class="my-2 my-lg-0">
-      <a href=" {{ path('login') }}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+         <span style="color:white; font-size: 18px;"> {{ app.user.fullname}} </span>
+         {% if is_granted('ROLE_ADMIN') %}
+             <a href=" {{ path('admin') }}" class="btn btn-outline-info my-2 my-sm-0">Admin Page</a>
+         {% endif %}
+         <a href=" {{ path('logout') }}" class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+     {% else %}
+         <a href=" {{ path('login') }}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+     {% endif %}
     </div>
   </div>
 </nav>

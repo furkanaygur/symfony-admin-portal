@@ -13,6 +13,14 @@
 <div class="main">
     <div class="col-md-6 col-sm-12">
         <div class="login-form">
+         {% if error %}
+            <div class="alert alert-danger"> {{ error.messageKey|trans(error.messageData, 'security') }} </div>
+         {% endif %}
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
             {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_row(form.email ,{'attr': {'class': 'form-control'}}) }}
@@ -20,8 +28,11 @@
                 <div class="form-group">
                     {{ form_row(form.password ,{'attr': {'class': 'form-control'}}) }}
                 </div>
-                 {{ form_row(form.login ,{'attr': {'class': 'btn btn-black'}}) }}
-             {{ form_end(form) }}
+                {{ form_widget(form.login, {'attr': {'class': 'btn btn-black'}}) }}
+                <span>Register Now =>
+                <a class="btn btn-warning" href=" {{ path('register') }} "> Register</a>
+                </span>
+            {{ form_end(form) }}
         </div>
     </div>
 </div>

@@ -23,11 +23,12 @@
                  <div class="form-group">
                     {{ form_row(form.fullname ,{'attr': {'class': 'form-control'}}) }}
                 </div>
-                {{ form_row(form.roles) }}
-                 {{ form_row(form.register ,{'attr': {'class': 'btn btn-black'}}) }}
+                {{ form_widget(form.register, {'attr': {'class': 'btn btn-black'}}) }}
+                <span>Login Now =>
+                <a class="btn btn-warning" href=" {{ path('login') }} "> Login</a>
+                </span>
             {{ form_end(form) }}
         </div>
     </div>
 </div>
-
 {% endblock %}

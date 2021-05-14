@@ -4,7 +4,6 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,9 +17,6 @@ class RegisterType extends AbstractType {
         ->add('password', PasswordType::class)
         ->add('fullname', TextType::class, [
             'label' => 'Full Name'
-        ])
-        ->add('roles', HiddenType::class, [
-            'empty_data' => 'ROLE_USER'
         ])
         ->add('register', SubmitType::class, [
             'label' => 'Register'

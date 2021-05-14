@@ -7,11 +7,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-       <a class="nav-item nav-link" href=" {{ path('admin') }} ">Home</a>
+        <a class="nav-item nav-link" href=" {{ path('admin') }} ">Admin Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-item nav-link" href=" {{ path('index') }} ">Site Home</a>
       </li>
     </ul>
     <div class="my-2 my-lg-0">
-      <a href="#" class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+      {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+        <span style="color:white; font-size: 18px;"> {{ app.user.fullname}} </span>
+        <a href=" {{ path('logout')}} " class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+      {% endif %}
     </div>
   </div>
 </nav>

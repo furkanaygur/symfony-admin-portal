@@ -24,7 +24,8 @@
         <tr>
           <td> {{ user.fullname }} </td>
           <td> {{ user.email }} </td>
-          <td> <span class="badge badge-{{ user.roles == 'admin' ? 'success' : 'info'  }} "> {{ user.roles }}</span>  </td>
+          <td> {{ user.roles|join(' ') }}</td>
+          {#<td> <span class="badge badge-{{ user.roles == 'admin' ? 'success' : 'info'  }} "> {{ user.roles }}</span>  </td>#}
           <td> {{ user.getCreatedAt|date('d/m/Y (d M D)') }}</td>
       </tr>
       {% endfor %}
